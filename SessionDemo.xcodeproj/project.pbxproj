@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C0AD8D601E7F9DC600C0330A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C0AD8D5F1E7F9DC600C0330A /* main.m */; };
 		C0AD8D631E7F9DC600C0330A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0AD8D621E7F9DC600C0330A /* AppDelegate.m */; };
-		C0AD8D661E7F9DC600C0330A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0AD8D651E7F9DC600C0330A /* ViewController.m */; };
+		C0AD8D661E7F9DC600C0330A /* NEVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0AD8D651E7F9DC600C0330A /* NEVViewController.m */; };
 		C0AD8D691E7F9DC600C0330A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0AD8D671E7F9DC600C0330A /* Main.storyboard */; };
 		C0AD8D6B1E7F9DC600C0330A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0AD8D6A1E7F9DC600C0330A /* Assets.xcassets */; };
 		C0AD8D6E1E7F9DC600C0330A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0AD8D6C1E7F9DC600C0330A /* LaunchScreen.storyboard */; };
@@ -20,8 +20,8 @@
 		C0AD8D5F1E7F9DC600C0330A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C0AD8D611E7F9DC600C0330A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C0AD8D621E7F9DC600C0330A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C0AD8D641E7F9DC600C0330A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C0AD8D651E7F9DC600C0330A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C0AD8D641E7F9DC600C0330A /* NEVViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NEVViewController.h; sourceTree = "<group>"; };
+		C0AD8D651E7F9DC600C0330A /* NEVViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NEVViewController.m; sourceTree = "<group>"; };
 		C0AD8D681E7F9DC600C0330A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0AD8D6A1E7F9DC600C0330A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0AD8D6D1E7F9DC600C0330A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,8 +60,8 @@
 			children = (
 				C0AD8D611E7F9DC600C0330A /* AppDelegate.h */,
 				C0AD8D621E7F9DC600C0330A /* AppDelegate.m */,
-				C0AD8D641E7F9DC600C0330A /* ViewController.h */,
-				C0AD8D651E7F9DC600C0330A /* ViewController.m */,
+				C0AD8D641E7F9DC600C0330A /* NEVViewController.h */,
+				C0AD8D651E7F9DC600C0330A /* NEVViewController.m */,
 				C0AD8D671E7F9DC600C0330A /* Main.storyboard */,
 				C0AD8D6A1E7F9DC600C0330A /* Assets.xcassets */,
 				C0AD8D6C1E7F9DC600C0330A /* LaunchScreen.storyboard */,
@@ -151,7 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0AD8D661E7F9DC600C0330A /* ViewController.m in Sources */,
+				C0AD8D661E7F9DC600C0330A /* NEVViewController.m in Sources */,
 				C0AD8D631E7F9DC600C0330A /* AppDelegate.m in Sources */,
 				C0AD8D601E7F9DC600C0330A /* main.m in Sources */,
 			);

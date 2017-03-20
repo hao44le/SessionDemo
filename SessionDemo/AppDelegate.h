@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "NEVViewController.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (copy, nonatomic) void(^backgroundSessionCompletionHandler)();
+@property (strong,nonatomic) NEVViewController * downloadVC;
 
 @end
 
