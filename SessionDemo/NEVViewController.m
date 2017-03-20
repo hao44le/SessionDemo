@@ -8,6 +8,7 @@
 
 #import "NEVViewController.h"
 #import "AppDelegate.h"
+#import <BugfenderSDK/BugfenderSDK.h>
 @interface NEVViewController ()<NSURLSessionDelegate,NSURLSessionDownloadDelegate>{
     NSURLSessionTask *task;
     NSURLSession *session;
@@ -31,15 +32,17 @@
 - (IBAction)start:(id)sender {
     if (task) return;
     
-    NSURL * downloadURL = [NSURL URLWithString:@"https://nationalzoo.si.edu/sites/default/files/animals/africanlion-005_0.jpg"];
+    NSURL * downloadURL = [NSURL URLWithString:@"https://s3-us-west-2.amazonaws.com/speech-prod/u8/8-1489879112.wav"];
     NSURLRequest *request = [NSURLRequest requestWithURL:downloadURL];
     task = [session downloadTaskWithRequest:request];
     [task resume];
+    BFLog(@"task.resume");
     self.image.hidden = YES;
     self.progress.hidden = NO;
 }
 
 - (IBAction)crash:(id)sender {
+    BFLog(@"will crash");
     char *c = NULL;
     *c = 1;
 }
@@ -51,10 +54,12 @@
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:@"com.geleichen.com.demo"];
         _session = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
     });
+    BFLog(@"finish configurting backgroundSession");
     return _session;
 }
 
 - (void)callCompletionHandlerIfFinished {
+    BFLog(@"callCompletionHandlerIfFinished");
     [session getTasksWithCompletionHandler:^(NSArray<NSURLSessionDataTask *> * _Nonnull dataTasks, NSArray<NSURLSessionUploadTask *> * _Nonnull uploadTasks, NSArray<NSURLSessionDownloadTask *> * _Nonnull downloadTasks) {
         NSUInteger count = [dataTasks count] + [uploadTasks count] + [downloadTasks count];
         if (count==0){
@@ -70,7 +75,7 @@
 
 -(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite{
     double progress = (double)totalBytesWritten / (double)totalBytesExpectedToWrite;
-    NSLog(@"downloadTask: %@ progress: %f",downloadTask,progress);
+    BFLog(@"downloadTask: %@ progress: %f",downloadTask,progress);
     dispatch_async(dispatch_get_main_queue(), ^{
         self.progress.progress = progress;
     });
@@ -78,12 +83,12 @@
 -(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location{
     NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString*doctsPath = [paths objectAtIndex:0];
-    NSString*filePath = [doctsPath stringByAppendingPathComponent:@"lion.png"];
+    NSString*filePath = [doctsPath stringByAppendingPathComponent:@"123.wav"];
     [[NSFileManager defaultManager]copyItemAtPath:[location path] toPath:filePath error:nil];
-    
+    BFLog(@"didFinishDownloadingToURL");
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIImage *_image2 = [UIImage imageWithContentsOfFile:filePath];
-        self.image.image = _image2;
+//        UIImage *_image2 = [UIImage imageWithContentsOfFile:filePath];
+        self.image.image = [UIImage imageNamed:@"finished"];
         self.progress.hidden = YES;
         self.image.hidden = NO;
     });
@@ -91,9 +96,9 @@
 
 -(void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error{
     if(error){
-        NSLog(@"Task: %@ faile with error: %@",task,error);
+        BFLog(@"Task: %@ faile with error: %@",task,error);
     } else {
-        NSLog(@"Task: %@ completed",task);
+        BFLog(@"Task: %@ completed",task);
     }
     
     self->task = nil;
