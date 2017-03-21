@@ -75,7 +75,7 @@
 
 -(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite{
     double progress = (double)totalBytesWritten / (double)totalBytesExpectedToWrite;
-    BFLog(@"downloadTask: %@ progress: %f",downloadTask,progress);
+//    BFLog(@"downloadTask: %@ progress: %f",downloadTask,progress);
     dispatch_async(dispatch_get_main_queue(), ^{
         self.progress.progress = progress;
     });

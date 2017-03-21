@@ -18,6 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [Bugfender activateLogger:@"qEE9R7q0KV1h9TEmGpnSDz5C0jQTWUDJ"];
+    BFLog(@"didFinishLaunchingWithOptions");
     [Bugfender enableUIEventLogging];  // optional, log user interactions automatically
     return YES;
 }
